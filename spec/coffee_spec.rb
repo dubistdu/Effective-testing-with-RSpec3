@@ -1,3 +1,8 @@
+class Coffee
+  def ingredients
+    @ingredients ||=[]
+  end
+
 Rspec describe 'A cup of coffee' do
   let(:coffee) { Coffee.new }
 
