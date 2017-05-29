@@ -8,7 +8,7 @@ class Coffee
   end
 
   def price
-    1.00
+    1.00 + ingredients.size*0.25
   end
 end
 
@@ -16,8 +16,10 @@ end
 # '--only-failures' flag  -> when you have more than one failure
 # rspec filename.rb --only-failures
 
+# config.filter_run_when_matching(focus:true)   rspec to focus only on slected examples
 
 RSpec.configure do |config|
+  config.filter_run_when_matching(focus:true)
   config.example_status_persistence_file_path = 'spec/examples.txt'
 end
 
@@ -28,7 +30,8 @@ RSpec.describe 'A cup of coffee' do
     expect(coffee.price).to eq(1.00)
   end
 
-  context 'with milk' do
+# add 'f' in front of context to make rspec focus on this particular example
+  fcontext 'with milk' do
     before { coffee.add :milk}
 
     it 'costs $1.25' do
