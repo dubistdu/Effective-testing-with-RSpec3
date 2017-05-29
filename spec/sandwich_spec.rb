@@ -13,9 +13,8 @@ RSpec.describe 'An ideal sandwich' do
   end
 end
 
-
-
 # Form of Ruby
+
 # Sandwich = Struct.new(:taste, :toppings)
 #
 # RSpec.describe 'An ideal sandwich' do
